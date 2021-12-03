@@ -1,0 +1,72 @@
+	public static void printBoard(char[] arr)
+	{
+		int i = 0;
+		System.out.println(" -----------");
+		System.out.print("| ");
+		while (i<3)
+		{
+			System.out.print(arr[i] + " | ");
+			i++;
+		}
+		System.out.println();
+		System.out.println("|-----------|");
+		System.out.print("| ");
+		while (i<6)
+		{
+			System.out.print(arr[i] + " | ");
+			i++;
+		}
+		System.out.println();
+		System.out.println("|-----------|");
+		System.out.print("| ");
+		while (i<9)
+		{
+			System.out.print(arr[i] + " | ");
+			i++;
+		}
+		System.out.println();
+		System.out.print(" ----------- ");
+		System.out.println();
+	}
+	
+	public static boolean isOver(char[] arr)
+	{
+		for (int i = 0; i < arr.length; i++)
+			if (arr[i] == ' ')
+				return false;
+		return true;
+	}
+	
+	public static boolean isPWon(char[] arr, char a)
+	{
+		boolean ok = false;
+		for (int i = 0; i < 9 && !ok ; i+= 3)
+			if (arr[i] == a && arr[i+1] == a && arr[i+2] == a)
+				ok = true;
+		for (int j = 0; j < 3 && !ok; j++)
+			if (arr[j] == a && arr[j+3] == a && arr[j+6] == a)
+				ok = true;
+		if ((arr[0] == a && arr[4] == a && arr[8] == a) || (arr[2] == a && arr[4] == a && arr[6] == a))
+			ok = true;
+		return ok;
+	}
+	
+	public static boolean isDraw(char[] arr)
+	{
+		return (isOver(arr) && !(isPWon(arr, 'X') || isPWon(arr, 'O')));
+	}
+	
+	public static char[] addMark(char[] arr, int spot, char a)
+	{
+		arr[spot-1] = a;
+		return arr;
+	}
+	
+	public static char switchMark(char a)
+	{
+		if (a == 'X')
+			return 'O';
+		else
+			return 'X';
+	}
+	
