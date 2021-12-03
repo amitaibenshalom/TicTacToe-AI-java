@@ -11,7 +11,6 @@ public static double checkValueDepth(char[] board, char a, char c, double total)
 			{
 				total += checkValueDepth(addMark(board, i+1, a), switchMark(a), c, 0)/10.0;
 				board = addMark(board,i+1,' ');
-				//System.out.println(total);
 			}
 		return total;
 	}
