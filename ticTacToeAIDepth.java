@@ -164,5 +164,4 @@ public class ticTacToeAIDepth
 		}
 		return total;
 	}
-
 }
