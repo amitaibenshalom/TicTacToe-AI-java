@@ -42,11 +42,10 @@ public class ticTacToeAIDepth
 			}
 			arr = addMark(arr, spot, a);
 			printBoard(arr);
+			
 			int i = 0;
 			while(i < 9 && arr[i] != ' ')
-			{
 				i++;
-			}
 			for (int j = i; j < 9; j++)
 			{
 				if (arr[j] == ' ')
@@ -154,14 +153,11 @@ public class ticTacToeAIDepth
 		if (isPWon(board, switchMark(c)))
 			return -10.0;
 		for (int i = 0; i < 9; i++)
-		{
 			if (board[i] == ' ')
 			{
 				total += checkValueDepth(addMark(board, i+1, a), switchMark(a), c, 0)/10.0;
 				board = addMark(board,i+1,' ');
-				//System.out.println(total);
 			}
-		}
 		return total;
 	}
 }
