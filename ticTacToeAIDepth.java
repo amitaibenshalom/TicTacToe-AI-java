@@ -52,8 +52,12 @@ public class ticTacToeAIDepth
 				{
 					double temp = checkValueDepth(addMark(arr, j+1, switchMark(a)), a, switchMark(a), 0);
 					arr = addMark(arr,j+1,' ');
+					if (Math.floor(temp * 1000) == 318)
+						temp = 0;
 					double best = checkValueDepth(addMark(arr, i+1, switchMark(a)), a, switchMark(a), 0);
 					arr = addMark(arr, i+1, ' ');
+					if (Math.floor(best * 1000) == 318)
+						best = 0;
 					if (temp > best)
 						i = j;
 				}
